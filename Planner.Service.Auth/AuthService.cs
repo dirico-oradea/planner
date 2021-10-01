@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-using Planner.Data.MsSql;
+using Planner.Data.Domain;
 using Planner.DTOs;
 
 using System.Linq;
@@ -18,7 +18,7 @@ namespace Planner.Service.Auth
 
         public UserDto GetUserName()
         {
-            using var db = new MsSqlContext();
+            using var db = new DataContext();
 
             var user = db.Users.FirstOrDefault();
             var mappedUser = _mapper.Map<UserDto>(user);

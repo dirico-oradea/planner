@@ -23,6 +23,9 @@ export class Service {
         throw new Error('no Implemented');
     }
 
+    // programatic redirect
+    public redirect(url: string): void {};
+
     constructor() {
         makeObservable(this, {
             currentUser: observable,

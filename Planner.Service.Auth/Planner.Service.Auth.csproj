@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Planner.Data.MsSql\Planner.Data.MsSql.csproj" />
+    <ProjectReference Include="..\Planner.Data.Domain\Planner.Data.Domain.csproj" />
     <ProjectReference Include="..\Planner.DTOs\Planner.DTOs.csproj" />
   </ItemGroup>
 

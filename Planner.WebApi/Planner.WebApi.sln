@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner.Service.Auth", "..\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Planner.Data", "Planner.Data", "{ACE7A062-A41B-424D-8E40-94BA73F2CCE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner.Data.MsSql", "..\Planner.Data.MsSql\Planner.Data.MsSql.csproj", "{5B946744-0512-4D3E-9EC4-1B93A9733644}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner.Data.Domain", "..\Planner.Data.Domain\Planner.Data.Domain.csproj", "{5B946744-0512-4D3E-9EC4-1B93A9733644}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planner.Data.Models", "Planner.Data.Models\Planner.Data.Models.csproj", "{DFD357A5-8968-475A-A66B-46882101588B}"
 EndProject

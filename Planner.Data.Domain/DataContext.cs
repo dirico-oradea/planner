@@ -2,7 +2,7 @@
 
 using Planner.Data.Models;
 
-namespace Planner.Data.MsSql
+namespace Planner.Data.Domain
 {
     /// <summary>
     /// Todo: Install the following nuget packages
@@ -19,15 +19,22 @@ namespace Planner.Data.MsSql
     /// </summary>
     /// add-migration
     // update-database
-    public class MsSqlContext : DbContext
+    public class DataContext : DbContext
     {
+        // public DataContext(DbContextOptions options) : base(options)
+        // {
+
+        // }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlite("Data Source=planner.db");
+
         public DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // Todo: set connection string
-            // set database name
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Planner;Trusted_Connection=True;MultipleActiveResultSets=true");
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     // Todo: set connection string
+        //     // set database name
+        //     optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Planner;Trusted_Connection=True;MultipleActiveResultSets=true");
+        // }
     }
 }
