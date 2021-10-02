@@ -25,6 +25,9 @@ namespace Planner.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDbContext<DataContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")), ServiceLifetime.Singleton);
+
             services.AddControllers();
 
             services.AddSingleton<IAuthService, AuthService>();

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using System.IO;
 using Planner.Data.Models;
 
 namespace Planner.Data.Domain
@@ -18,23 +18,22 @@ namespace Planner.Data.Domain
     /// Microsoft sql server management studio
     /// </summary>
     /// add-migration
-    // update-database
+    /// update-database
+    /// or with command line
+    /// dotnet ef migrations add InitialCreate --project Planner.Data.Domain
+    /// dotnet ef database update -p Planner.WebApi/Planner.WebApi
+    /// dotnet run -p Planner.WebApi/Planner.WebApi
+
     public class DataContext : DbContext
     {
-        // public DataContext(DbContextOptions options) : base(options)
-        // {
+        public DataContext(DbContextOptions options) : base(options)
+        {
 
-        // }
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("Data Source=planner.db");
+        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //     => options.UseSqlite("Data Source=planner.db");
 
         public DbSet<User> Users { get; set; }
 
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        // {
-        //     // Todo: set connection string
-        //     // set database name
-        //     optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Planner;Trusted_Connection=True;MultipleActiveResultSets=true");
-        // }
     }
 }
