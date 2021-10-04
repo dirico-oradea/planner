@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Planner.DTOs",
+    "\\Planner.Service.Auth",
+    "\\Planner.WebApi",
+    "\\Planner.WebApi\\Planner.Data.Models",
+    "\\Planner.WebApi\\Planner.WebApi"
+  ],
+  "SelectedNode": "\\Planner.WebApi\\Planner.WebApi.sln",
+  "PreviewInSolutionExplorer": false
+}
