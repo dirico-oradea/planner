@@ -5,8 +5,9 @@
     "\\Planner.Service.Auth",
     "\\Planner.WebApi",
     "\\Planner.WebApi\\Planner.Data.Models",
-    "\\Planner.WebApi\\Planner.WebApi"
+    "\\Planner.WebApi\\Planner.WebApi",
+    "\\Planner.WebApi\\Planner.WebApi\\Controllers"
   ],
-  "SelectedNode": "\\Planner.WebApi\\Planner.WebApi.sln",
+  "SelectedNode": "\\Planner.WebApi\\Planner.WebApi\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -31,6 +31,27 @@ namespace Planner.WebApi.Controllers
             {
                 return Created("id/" + hotel.Id, this.hotelService.CreateHotel(hotel));
             }
+
+            [HttpPut]
+            [Route("update/{studentId}")]
+            public ActionResult<HotelDTO> UpdateHotelById([FromRoute] int hotelId, [FromBody] HotelDTO changedHotel)
+            {
+                try
+                {
+                    return Ok(this.hotelService.UpdateHotelById(hotelId, changedHotel));
+                }
+                catch
+                {
+                    return NotFound();
+                }
+            }
+
+            [HttpGet]
+            [Route("hotels/{OwnerId}")]
+            public List<HotelDTO> GetHotelsByOwnerId([FromQuery] int ownerId)
+            {
+                return this.hotelService.GetHotelsByOwnerId(ownerId);
+            }
         }
     }
 }
