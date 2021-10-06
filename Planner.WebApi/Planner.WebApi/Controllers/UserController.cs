@@ -10,7 +10,7 @@ namespace Planner.WebApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        public IAuthService _authService;
+        private readonly IAuthService _authService;
 
         public UserController(IAuthService authService)
         {
@@ -22,6 +22,13 @@ namespace Planner.WebApi.Controllers
         public ActionResult<UserDto> GetuserName()
         {
             return _authService.GetUserName();
+        }
+
+        [HttpPost]
+        [Route("api/register")]
+        public ActionResult<string> Register([FromBody] UserDto userDto)
+        {
+            return _authService.Create(userDto);
         }
     }
 }
