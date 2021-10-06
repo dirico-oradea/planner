@@ -47,7 +47,6 @@ namespace Planner.Service.Auth
             _context.SaveChanges();
 
             return token;
-
         }
 
         public static string CreateMD5(string password)
@@ -117,7 +116,5 @@ namespace Planner.Service.Auth
             }
             return true;
         }
-
-
     }
 }
