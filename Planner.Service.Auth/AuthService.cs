@@ -67,7 +67,25 @@ namespace Planner.Service.Auth
             string encodedPassword = CreateMD5(loginUser.Password);
             User user = _context.Users.FirstOrDefault(u => u.UserName == loginUser.UserName && u.Password == encodedPassword);
 
-            return user != null ? user.Token : "Wrong UserName or Password";
+            if (user == null)
+                return "Wrong UserName or Password";
+
+            user.Token = GenerateToken(loginUser.UserName);
+            _context.SaveChanges();
+
+            return user.Token;
+        }
+
+        public string Logout(string token)
+        {
+            User user = _context.Users.FirstOrDefault(u => u.Token == token);
+            if (user == null)
+                return "";
+
+
+            user.Token = "";
+            _context.SaveChanges();
+            return "Logout succesfully";
         }
 
         private static string GenerateToken(string userName)

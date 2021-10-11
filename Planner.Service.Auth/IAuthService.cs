@@ -9,5 +9,7 @@ namespace Planner.Service.Auth
         string Create(UserDto userDto);
 
         string Login(LoginUser loginUser);
+
+        string Logout(string token);
     }
 }

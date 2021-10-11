@@ -38,5 +38,13 @@ namespace Planner.WebApi.Controllers
         {
             return _authService.Login(loginUser);
         }
+
+        [HttpPost]
+        [Route("api/logout")]
+        public ActionResult<string> Login([FromHeader] string token)
+        {
+            string result = _authService.Logout(token);
+            return result.Length != 0 ? result : BadRequest();
+        }
     }
 }
