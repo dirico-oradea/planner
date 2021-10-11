@@ -18,10 +18,11 @@ namespace Planner.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-        public ActionResult<UserDto> GetuserName()
+        [Route("api/getUser")]
+        public ActionResult<UserDto> getUserProfile([FromHeader] string token)
         {
-            return _authService.GetUserName();
+            UserDto user = _authService.GetUser(token);
+            return user != null ? user : Unauthorized();
         }
 
         [HttpPost]
@@ -29,6 +30,13 @@ namespace Planner.WebApi.Controllers
         public ActionResult<string> Register([FromBody] UserDto userDto)
         {
             return _authService.Create(userDto);
+        }
+
+        [HttpPost]
+        [Route("api/login")]
+        public ActionResult<string> Login([FromBody] LoginUser loginUser)
+        {
+            return _authService.Login(loginUser);
         }
     }
 }

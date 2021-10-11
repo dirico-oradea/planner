@@ -25,13 +25,11 @@ namespace Planner.Service.Auth
             _context = context;
         }
 
-        public UserDto GetUserName()
+        public UserDto GetUser(string token)
         {
-            var user = _context.Users.FirstOrDefault();
+            var user = _context.Users.FirstOrDefault(u => u.Token == token);
 
-            var mappedUser = _mapper.Map<UserDto>(user);
-
-            return mappedUser;
+            return _mapper.Map<UserDto>(user);
         }
 
         public string Create(UserDto userDto)
@@ -62,6 +60,14 @@ namespace Planner.Service.Auth
                 }
                 return sb.ToString();
             }
+        }
+
+        public string Login(LoginUser loginUser)
+        {
+            string encodedPassword = CreateMD5(loginUser.Password);
+            User user = _context.Users.FirstOrDefault(u => u.UserName == loginUser.UserName && u.Password == encodedPassword);
+
+            return user != null ? user.Token : "Wrong UserName or Password";
         }
 
         private static string GenerateToken(string userName)
