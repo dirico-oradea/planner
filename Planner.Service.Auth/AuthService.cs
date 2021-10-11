@@ -25,11 +25,11 @@ namespace Planner.Service.Auth
             _context = context;
         }
 
-        public UserDto GetUser(string token)
+        public UserProfile GetUser(string token)
         {
             var user = _context.Users.FirstOrDefault(u => u.Token == token);
 
-            return _mapper.Map<UserDto>(user);
+            return _mapper.Map<UserProfile>(user);
         }
 
         public string Create(UserDto userDto)
@@ -45,6 +45,21 @@ namespace Planner.Service.Auth
             _context.SaveChanges();
 
             return token;
+        }
+
+        public UserProfile Update(UserProfile user, string token)
+        {
+            User dbUser = _context.Users.FirstOrDefault(u => u.Token == token);
+
+            if (dbUser == null)
+                return null;
+
+            dbUser.Avatar = user.Avatar;
+            dbUser.FirstName = user.FirstName;
+            dbUser.LastName = user.LastName;
+
+            _context.SaveChanges();
+            return _mapper.Map<UserProfile>(dbUser);
         }
 
         public static string CreateMD5(string password)

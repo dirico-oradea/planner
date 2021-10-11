@@ -19,9 +19,9 @@ namespace Planner.WebApi.Controllers
 
         [HttpGet]
         [Route("api/getUser")]
-        public ActionResult<UserDto> getUserProfile([FromHeader] string token)
+        public ActionResult<UserProfile> getUserProfile([FromHeader] string token)
         {
-            UserDto user = _authService.GetUser(token);
+            UserProfile user = _authService.GetUser(token);
             return user != null ? user : Unauthorized();
         }
 
@@ -45,6 +45,14 @@ namespace Planner.WebApi.Controllers
         {
             string result = _authService.Logout(token);
             return result.Length != 0 ? result : BadRequest();
+        }
+
+        [HttpPut]
+        [Route("api/update")]
+        public ActionResult<string> Update([FromBody] UserProfile user, [FromHeader] string token)
+        {
+            UserProfile result = _authService.Update(user, token);
+            return result != null ? Ok(result) : BadRequest();
         }
     }
 }

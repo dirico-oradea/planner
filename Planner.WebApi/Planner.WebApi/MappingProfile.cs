@@ -14,6 +14,10 @@ namespace Planner.WebApi
 
             CreateMap<UserDto, User>();
 
+            CreateMap<User, UserProfile>();
+
+            CreateMap<UserProfile, User>();
+
         }
     }
 }
