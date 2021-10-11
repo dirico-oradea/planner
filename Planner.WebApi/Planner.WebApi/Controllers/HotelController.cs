@@ -11,47 +11,49 @@ using Planner.Service.Hotel;
 
 namespace Planner.WebApi.Controllers
 {
-    public class HotelController
+   
+    [Route("[controller]")]
+    [ApiController]
+    public class HotelController : ControllerBase
     {
-        [Route("[controller]")]
-        [ApiController]
-        public class UserController : ControllerBase
+        public IHotelService _hotelService;
+
+        public HotelController(IHotelService hotelService)
         {
-            //public IAuthService _authService;
+            _hotelService = hotelService;
+        }
+        [HttpGet]
+        [Route("")]
+        public ActionResult<HotelDTO> GetHotel()
+        {
+            return _hotelService.GetHotel();
+        }
+        /*[HttpPost]
+        [Route("create")]
+        public ActionResult<HotelDTO> CreateHotel([FromBody] HotelDTO hotel)
+        {
+            return Created("id/" + hotel.Id, this.hotelService.CreateHotel(hotel));
+        }
 
-            //public UserController(IAuthService authService)
-            //{
-            //    _authService = authService;
-            //}
-            private HotelService hotelService = new HotelService();
-
-            [HttpPost]
-            [Route("create")]
-            public ActionResult<HotelDTO> CreateHotel([FromBody] HotelDTO hotel)
+        [HttpPut]
+        [Route("update/{studentId}")]
+        public ActionResult<HotelDTO> UpdateHotelById([FromRoute] int hotelId, [FromBody] HotelDTO changedHotel)
+        {
+            try
             {
-                return Created("id/" + hotel.Id, this.hotelService.CreateHotel(hotel));
+                return Ok(this.hotelService.UpdateHotelById(hotelId, changedHotel));
             }
-
-            [HttpPut]
-            [Route("update/{studentId}")]
-            public ActionResult<HotelDTO> UpdateHotelById([FromRoute] int hotelId, [FromBody] HotelDTO changedHotel)
+            catch
             {
-                try
-                {
-                    return Ok(this.hotelService.UpdateHotelById(hotelId, changedHotel));
-                }
-                catch
-                {
-                    return NotFound();
-                }
-            }
-
-            [HttpGet]
-            [Route("hotels/{OwnerId}")]
-            public List<HotelDTO> GetHotelsByOwnerId([FromQuery] int ownerId)
-            {
-                return this.hotelService.GetHotelsByOwnerId(ownerId);
+                return NotFound();
             }
         }
+
+        [HttpGet]
+        [Route("hotels/{OwnerId}")]
+        public List<HotelDTO> GetHotelsByOwnerId([FromQuery] int ownerId)
+        {
+            return this.hotelService.GetHotelsByOwnerId(ownerId);
+        }*/
     }
-}
+ }

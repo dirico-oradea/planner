@@ -11,6 +11,8 @@ namespace Planner.WebApi
         {
             CreateMap<User, UserDto>()
                 .ForMember(dst => dst.FullName, opt => opt.MapFrom(src => src.FirstName + " " + src.LastName));
+            CreateMap<Hotel, HotelDTO>();
+                
 
         }
     }
