@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Planner.Data.Domain",
+    "\\Planner.Data.Domain\\Migrations",
     "\\Planner.DTOs",
     "\\Planner.Service.Auth",
     "\\Planner.WebApi",
     "\\Planner.WebApi\\Planner.Data.Models",
+    "\\Planner.WebApi\\Planner.Service.Hotel",
     "\\Planner.WebApi\\Planner.WebApi",
     "\\Planner.WebApi\\Planner.WebApi\\Controllers"
   ],
-  "SelectedNode": "\\Planner.WebApi\\Planner.WebApi\\Startup.cs",
+  "SelectedNode": "\\Planner.WebApi\\Planner.WebApi.sln",
   "PreviewInSolutionExplorer": false
 }
