@@ -34,6 +34,7 @@ namespace Planner.Data.Domain
         //     => options.UseSqlite("Data Source=planner.db");
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
 
     }
 }
