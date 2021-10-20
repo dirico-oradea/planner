@@ -9,5 +9,6 @@ namespace Planner.Service.HotelAuth
         string CreateHotel(HotelDTO hotel);
         HotelDTO UpdateHotelById(int hotelId, HotelDTO changedHotel);
         List<HotelDTO> GetHotelsByOwnerId(int ownerId);
+        List<HotelDTO> GetAllHotels();
     }
 }

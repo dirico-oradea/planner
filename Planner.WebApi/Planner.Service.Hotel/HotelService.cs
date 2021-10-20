@@ -63,5 +63,10 @@ namespace Planner.Service.HotelAuth
             List<Hotel> myHotels = _context.Hotels.Where(s => s.OwnerId == ownerId).ToList();
             return _mapper.Map<List<HotelDTO>>(myHotels);
         }
+        public List<HotelDTO> GetAllHotels()
+        {
+            List<Hotel> allHotels = _context.Hotels.ToList();
+            return _mapper.Map<List<HotelDTO>>(allHotels);
+        }
     }
 }

@@ -52,5 +52,13 @@ namespace Planner.WebApi.Controllers
         {
             return _hotelService.GetHotelsByOwnerId(ownerId);
         }
+
+        [HttpGet]
+        [Route("hotels")]
+        public List<HotelDTO> GetAllHotels()
+        {
+            return _hotelService.GetAllHotels();
+        }
+        
     }
 }
